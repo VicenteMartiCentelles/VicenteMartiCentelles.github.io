@@ -1,0 +1,82 @@
+<!doctype HTML>
+<html>
+
+<script src="aframe.min.js"></script>
+<script src="aframe-ar.js"></script>
+<script src="aframe-vrml-component.min.js"></script>
+
+
+<body style='margin : 0px; overflow: hidden;'>
+		
+        <a-scene embedded 
+		vr-mode-ui="enabled: false"
+		arjs='debugUIEnabled: false; 
+		sourceType: webcam;
+		detectionMode: mono_and_matrix; 
+		matrixCodeType: 3x3
+		trackingMethod: best;'
+		renderer="antialias: false; 
+		logarithmicDepthBuffer: true; 
+		colorManagement: true; 
+		sortObjects: true;"
+		>
+		<!--
+		<a-scene embedded arjs="trackingMethod:best;">
+		-->
+				<!--
+                <a-assets>
+					<a-asset-item id="3d-obj" src="model.obj"></a-asset-item>
+					<a-asset-item id="3d-mtl" src="model.mtl"></a-asset-item>
+                </a-assets>
+				-->
+				
+				<a-assets>
+					<a-asset-item id="3d-wrl" src="rotax_v01.wrl"></a-asset-item>
+				</a-assets>
+				
+
+				
+                <!-- Using the asset management system -->
+				<!--
+                <a-entity
+					scale ="0.5 0.5 0.5"
+					position ="0 0.7 0.7"
+					obj-model="obj: #3d-obj; mtl: #3d-mtl"
+					shadow="cast: true">
+				</a-entity>
+				-->
+				
+				<!--
+				<a-box 
+					scale ="1.5 1.5 1.5"
+					position="0 0 0"
+					material="color: yellow; opacity: 0.2;">
+				</a-box>
+				-->
+				
+		<a-marker type='pattern' url='ar-chem.patt'>
+
+				
+				<a-entity
+					vrml="#3d-wrl"
+					scale ="0.15 0.15 0.15"
+					position="0 0.5 0"
+					rotation="-90 0 0"
+					>
+				</a-entity>
+
+				<!--
+				<a-entity 
+					scale ="0.15 0.15 0.15"
+					shadow="cast: true"
+					vrml="url(rotax_v01.wrl)">
+				</a-entity>
+				-->
+
+		</a-marker>
+		<a-entity camera></a-entity>
+
+    </a-scene>
+</body>
+
+</html>
